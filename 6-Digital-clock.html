@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitsl Clock</title>
+    <style>
+       #container{
+        height: 100px;
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        text-align: center;
+        width: 150px;
+        margin: 30px auto;
+       }
+       #container2{
+        padding: 30px 10px;
+        /* margin: 10px; */
+        font-size: 2rem;
+        /* border: 2px solid black; */
+       }
+
+
+    </style>
+</head>
+<body> 
+    <div id="container"><div id="container2"></div></div>
+    <script>
+        function Time(){
+        let now = new Date();
+        let hr = now.getHours();
+        let mt = now.getMinutes();
+        let sc = now.getSeconds();
+        let time = '' + hr + ':' + mt+ ':' + sc;
+        document.getElementById('container2').innerText = time;
+    }
+    setInterval(Time, 1000);
+    </script>
+</body>
+</html>

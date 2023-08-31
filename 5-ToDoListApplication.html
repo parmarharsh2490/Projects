@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <style>
+        * {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .box {
+            display: inline-block;
+            text-align: center;
+            /* border: 2px solid red; */
+            margin: 40px 500px;
+            background-color: grey;
+            /* border: 2px solid green; */
+            animation-name: Border;
+            animation-duration: 4s;  
+            animation-iteration-count: infinite;  
+        }
+        @keyframes Border {
+            0%{
+                border: 20px solid black;
+            }
+            20%{
+                border: 20px solid rgb(172, 117, 117);
+            }
+            40%{
+                border: 20px solid rgb(34, 158, 104);
+            }
+            60%{
+                border: 20px solid rgb(206, 93, 128);
+            }
+            80%{
+                border: 20px solid rgb(114, 127, 113);
+            }
+            100%{
+                border: 20px solid rgb(214, 225, 140);
+            }
+            
+        }
+
+        .box h3 {
+            margin: 30px;
+            font-size: 2.8rem;
+            color: rgb(20, 19, 19);
+        }
+
+        .container {
+            color: red;
+            /* display:inline-block; */
+            width: 550px;
+        }
+
+        button {
+            border-radius: 4px;
+            background-color: #5ca1e1;
+            border: none;
+            color: #fff;
+            text-align: center;
+            font-size: 22px;
+            padding: 16px;
+            width: 120px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 36px;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        button:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 14px;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            padding-right: 24px;
+            padding-left: 8px;
+        }
+
+        button:hover:after {
+            opacity: 1;
+            right: 10px;
+        }
+        #input{
+            border: 2px sollid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <h3>To-Do List</h3>
+        <div class="container">
+            <input type="text" placeholder="Add New Task" id="input">
+            <button class="btn" onclick="Harsh()">Add</button>
+            <ul></ul>
+        </div>
+    </div>
+    <script>
+        let ul = document.querySelector('ul')
+        function Harsh() {
+            let li = document.createElement('li')
+            let valuee = document.getElementById('input').value;
+            console.log(valuee)
+            li.innerText = valuee;
+            ul.append(li)
+        }
+    </script>
+</body>
+
+</html>

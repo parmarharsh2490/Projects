@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Interactive Quiz App</h2>
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button id="nextButton">Next</button>
+        <div id="score" style="display: none;">Your Score: <span id="scoreValue">0</span></div>
+    </div>
+    <script>
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('nextButton');
+        const scoreElement = document.getElementById('score');
+        const scoreValueElement = document.getElementById('scoreValue');
+
+        const quizData = [
+            {
+                question: 'What is the capital of France?',
+                options: ['Paris', 'Berlin', 'Madrid', 'Rome'],
+                answer: 'Paris'
+            },
+            {
+                question: 'Which planet is known as the Red Planet?',
+                options: ['Earth', 'Mars', 'Jupiter', 'Venus'],
+                answer: 'Mars'
+            },
+            {
+                question: 'What is the largest mammal in the world?',
+                options: ['Elephant', 'Blue Whale', 'Giraffe', 'Hippopotamus'],
+                answer: 'Blue Whale'
+            }
+            // Add more quiz questions here
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            for (const option of currentQuestion.options) {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.addEventListener('click', () => checkAnswer(option, currentQuestion.answer));
+                optionsElement.appendChild(optionElement);
+            }
+
+            nextButton.style.display = 'none';
+            scoreElement.style.display = 'none';
+        }
+
+        function checkAnswer(selectedOption, correctAnswer) {
+            if (selectedOption === correctAnswer) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            questionElement.textContent = '';
+            optionsElement.innerHTML = '';
+            scoreValueElement.textContent = score;
+            nextButton.style.display = 'none';
+            scoreElement.style.display = 'block';
+        }
+
+        nextButton.addEventListener('click', () => loadQuestion());
+
+        loadQuestion();
+    </script>
+</body>
+</html>

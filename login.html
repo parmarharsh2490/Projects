@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Quote Generator</title>
+    <style>
+      body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#quote-container {
+    margin: 20px;
+}
+
+#generate-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    </style>
 </head>
 <body>
-    
+    <h1>Random Quote Generator</h1>
+    <div id="quote-container">
+        <p id="quote"></p>
+    </div>
+    <button id="generate-button">Generate Quote</button>
+    <script>
+      const quotes = [
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "Innovation distinguishes between a leader and a follower. - Steve Jobs",
+    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt"
+];
+
+const quoteElement = document.getElementById('quote');
+const generateButton = document.getElementById('generate-button');
+
+function generateRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteElement.textContent = quotes[randomIndex];
+}
+
+generateButton.addEventListener('click', generateRandomQuote);
+
+    </script>
 </body>
 </html>

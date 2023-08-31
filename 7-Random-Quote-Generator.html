@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        *{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container{
+            width: 700px;
+            margin: 70px auto 0px auto;
+            border: 2px solid #a2b9c6;
+            background-color: #9fc5dc;
+            box-shadow: #d8ccd4;
+        }
+        h3{
+            font-size: 3rem;
+            margin: 20px auto;
+        }
+        h2{
+            font-size: 1.8rem;
+            margin: 1px auto 15px auto;
+        }
+        button{
+            padding: 7px 30px;
+            font-size: 1.4rem;
+            margin: 10px auto;
+        }
+        #quote{
+            height: 70px;
+            border: 2px solid #d8ccd4;
+            margin: 0px auto 0px auto;
+            font-size: 1.8rem;
+            background-color: #edc0ec;
+            width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Random Quote Generator</h3>
+        <h2>Click here to generate a random quote</h2>
+        <button id="btn">Click</button>
+    </div>
+    <div id="quote"></div>
+    <script>
+        // const Qoute = [
+        //     "To thine own self, be true.",
+        //     "Two roads diverged in a wood, and I, I took the one less travelled by, and that has made all the difference.",
+        //     "United we stand, divided we fall.",
+        //     "What doesn't kill us makes us stronger."
+        // ];
+        // const i = Math.floor(Math.random() * (4 - 0 + 0)) + 0;
+        // function Qoutee() {
+        //     for (; ;) {
+        //         console.log(Qoute[i])
+        //         let a = document.getElementById('quote');
+        //         a.textContent = Qoute[i]
+        //         break;
+        //     }
+        // }
+        // let Qoute2 = [
+        //     {
+        //         quote1 : "To thine own self, be true."
+        //     },
+        //     {
+        //         quote2 : "Two roads diverged in a wood, and I, I took the one less travelled by, and that has made all the difference."
+        //     },
+        //     {
+        //         quote3 : "United we stand, divided we fall."
+        //     },
+        //     {
+        //         quote4 : "What doesn't kill us makes us stronger."
+        //     }
+        // ]
+        // const k = Math.floor(Math.random() * (4 - 0 + 0)) + 0;
+        // function Qout() {
+        //     for (; ;) {
+        //         console.log(Qoute2[k])
+        //         let a = document.getElementById('quote');
+        //         a.textContent = Qoute2[k]
+        //         break;
+        //     }
+        // }
+        const Qoute3 = [
+            "To thine own self, be true.",
+            "Two roads diverged in a wood, and I, I took the one less travelled by, and that has made all the difference.",
+            "United we stand, divided we fall.",
+            "What doesn't kill us makes us stronger."
+        ];
+        const quote = document.getElementById('quote');
+        const btn = document.getElementById('btn');
+        function Harsh(){
+            let num =  Math.floor(Math.random() * (4 - 0 + 0)) + 0;
+            quote.textContent = Qoute3[num]
+        }
+        btn.addEventListener('click',Harsh)
+    </script>
+</body>
+
+</html>
